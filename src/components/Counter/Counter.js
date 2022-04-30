@@ -24,7 +24,7 @@ const Counter = () => {
 								<div className="w-80 h-80 l-h-100  text-center mx-auto">
 									<span className="text-white fs-40 icon-Edit"><span className="path1"></span><span className="path2"></span></span>
 								</div>
-								<h1 className="countnm my-10 text-white fw-300"><CountUp start={0} end={2560} /></h1>
+								<h1 className="countnm my-10 text-white fw-300"><CountUp start={0} end={8560} /></h1>
 								<div className="text-uppercase text-white">Jobs Positon</div>
 							</div>
 						</div>
@@ -42,7 +42,7 @@ const Counter = () => {
 								<div className="w-80 h-80 l-h-100 text-center mx-auto">
 									<span className="text-white fs-40 icon-Add-user"><span className="path1"></span><span className="path2"></span></span>
 								</div>
-								<h1 className="countnm my-10 text-white fw-300"><CountUp start={0} end={6530} /></h1>
+								<h1 className="countnm my-10 text-white fw-300"><CountUp start={0} end={9530} /></h1>
 								<div className="text-uppercase text-white">Members</div>
 							</div>
 						</div>
