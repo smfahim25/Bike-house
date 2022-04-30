@@ -1,0 +1,7 @@
+.bg-img {
+  background-color: gray;
+}
+.border-style {
+  border: 1px dashed #fff;
+  border-radius: 100%;
+}
