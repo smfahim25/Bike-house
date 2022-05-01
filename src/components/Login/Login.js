@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import './SignIn.css';
+import './Login.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -53,7 +53,7 @@ const Login = () => {
     return (
         <div>
             <div className='container w-50 mx-auto'>
-                <h1 className=' text-center first'>Sign In</h1>
+                <h1 className=' text-center first'>Login</h1>
                 <form onSubmit={handleSignIn}>
                     <div className="mb-3">
                         <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
@@ -69,12 +69,12 @@ const Login = () => {
                     {
                         loading && <p>Loading...</p>
                     }
-                    <button type="submit" className="btn signin-btn">Sign In</button>
+                    <button type="submit" className="btn signin-btn">Login</button>
                 </form>
                 <p className='mt-3 text-center'>New to Fahim's Photography? <Link className='form-link' to='/signup'>Create new account</Link></p>
                 <p className='mt-3 text-center'>Forget Password? <button onClick={resetPassword} className='form-link btn btn-link'>Reset Password</button></p>
                 <ToastContainer />
-                <button onClick={() => signInWithGoogle()} className='google-btn text-center'> Google Sign In</button>
+                <button onClick={() => signInWithGoogle()} className='google-btn text-center'><i class="fab fa-google"> </i> Google Sign In</button>
             </div>
         </div>
     );
