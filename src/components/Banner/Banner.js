@@ -15,7 +15,7 @@ const Banner = () => {
                     />
                     <Carousel.Caption>
                         <h3 className='text-white'>Welcome To our Site</h3>
-                        <p className='text-black'>Here you find all type of bikes.</p>
+                        <p className='text-black fw-bold'>Here you find all type of bikes.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>

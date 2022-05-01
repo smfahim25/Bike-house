@@ -29,10 +29,10 @@ const Footer = () => {
 						<div className="footer-col">
 							<h4>Our Brands</h4>
 							<ul>
-								<li><a href="#">Mazda</a></li>
-								<li><a href="#">Ferrari</a></li>
-								<li><a href="#">Marcedes</a></li>
-								<li><a href="#">BMW</a></li>
+								<li><a href="#">Ducati</a></li>
+								<li><a href="#">Kawasaki Ninja</a></li>
+								<li><a href="#">Yamha</a></li>
+								<li><a href="#">Gixxer</a></li>
 							</ul>
 						</div>
 						<div className="footer-col">
