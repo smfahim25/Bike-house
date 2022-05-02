@@ -19,7 +19,7 @@
 
 .signin-btn:hover {
     background-color: rgba(22, 181, 221, 0.315);
-    color: rgb(255, 118, 6);
+    color: rgb(14, 13, 13);
 }
 
 .google-btn {
@@ -35,5 +35,5 @@
 
 .google-btn:hover {
     background-color: rgba(22, 181, 221, 0.315);
-    color: rgb(255, 118, 6);
+    color: rgb(0, 0, 0);
 }

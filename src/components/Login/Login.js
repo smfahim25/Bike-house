@@ -74,7 +74,7 @@ const Login = () => {
                 <p className='mt-3 text-center'>New to Fahim's Photography? <Link className='form-link' to='/signup'>Create new account</Link></p>
                 <p className='mt-3 text-center'>Forget Password? <button onClick={resetPassword} className='form-link btn btn-link'>Reset Password</button></p>
                 <ToastContainer />
-                <button onClick={() => signInWithGoogle()} className='google-btn text-center'><i class="fab fa-google"> </i> Google Sign In</button>
+                <button onClick={() => signInWithGoogle()} className='google-btn text-center'><i className="fab fa-google"> </i> Google Sign In</button>
             </div>
         </div>
     );

@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
-const SignUp = () => {
+const Signup = () => {
     const [signInWithGoogle, user1] = useSignInWithGoogle(auth);
     const [setError1] = useState('');
     const nameRef = useRef('');
@@ -71,9 +71,9 @@ const SignUp = () => {
             <div>
                 <p className='google-sign'></p>
             </div>
-            <button onClick={() => signInWithGoogle()} className='google-btn'><i class="fab fa-google"></i> Google Sign In</button>
+            <button onClick={() => signInWithGoogle()} className='google-btn'><i className="fab fa-google"></i> Google Sign In</button>
         </div>
     );
 };
 
-export default SignUp;
+export default Signup;

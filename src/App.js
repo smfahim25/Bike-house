@@ -5,12 +5,12 @@ import Home from './components/Home/Home';
 import Blog from './components/Blog/Blog';
 import ManageInventory from './components/ManageInventory/ManageInventory';
 import Inventory from './components/Inventory/Inventory';
-import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import AddNewItem from './components/AddNewItem/AddNewItem';
 import MyItem from './components/MyItem/MyItem';
 import NotFound from './components/NotFound/NotFound';
 import Footer from './components/Footer/Footer';
+import Login from './components/Login/Login';
 
 
 function App() {

@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDhKhaqxu08Sp68FhpBTTIuzZcN0_GcAMk",
-    authDomain: "independent-provider.firebaseapp.com",
-    projectId: "independent-provider",
-    storageBucket: "independent-provider.appspot.com",
-    messagingSenderId: "1005712728803",
-    appId: "1:1005712728803:web:05a6930a8c43c30bc5dbd6"
+    apiKey: "AIzaSyAeMKJWHPohoLTzcC_Xgag49N21lddnaQ4",
+    authDomain: "bike-house-22f6f.firebaseapp.com",
+    projectId: "bike-house-22f6f",
+    storageBucket: "bike-house-22f6f.appspot.com",
+    messagingSenderId: "562953077582",
+    appId: "1:562953077582:web:000a846da45d3ae1c4541f"
 };
 
 // Initialize Firebase
