@@ -71,7 +71,7 @@ const Login = () => {
     }
 
     return (
-        <div className='form-area'>
+        <div className='form-area container'>
             <form onSubmit={handleSubmit} className='login-form'>
                 {/* <!-- Email input --> */}
                 <h2 className='text-center'>Login</h2>
