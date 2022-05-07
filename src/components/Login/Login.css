@@ -5,6 +5,7 @@
 .form-link {
     text-decoration: none;
     color: rgb(255, 111, 15);
+    background-color: white;
 }
 
 .signin-btn {

@@ -1,16 +1,18 @@
-import './App.css';
 import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import AddNewItem from './components/AddNewItem/AddNewItem';
+import Blog from './components/Blog/Blog';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
-import Blog from './components/Blog/Blog';
-import ManageInventory from './components/ManageInventory/ManageInventory';
 import Inventory from './components/Inventory/Inventory';
-import Signup from './components/Signup/Signup';
-import AddNewItem from './components/AddNewItem/AddNewItem';
+import Login from './components/Login/Login';
+import ManageInventory from './components/ManageInventory/ManageInventory';
 import MyItem from './components/MyItem/MyItem';
 import NotFound from './components/NotFound/NotFound';
-import Footer from './components/Footer/Footer';
-import Login from './components/Login/Login';
+import RequireAuth from './components/RequireAuth/RequireAuth';
+import Register from './components/Spinner/Register/Register';
+
 
 
 function App() {
@@ -22,16 +24,16 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
-        {/* <Route path="/service/:serviceID" element={
-          <RequireAuth> <Checkout></Checkout> </RequireAuth>
-        }></Route> */}
+        <Route path="/inventory/:inventoryID" element={
+          <RequireAuth> <Inventory></Inventory> </RequireAuth>
+        }></Route>
         <Route path="/manage-inventory" element={<ManageInventory></ManageInventory>}></Route>
         <Route path="/inventory" element={<Inventory></Inventory>}></Route>
         {/* <Route path="/checkout" element={
           <RequireAuth> <Checkout></Checkout> </RequireAuth>
         }></Route> */}
         <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="/signup" element={<Signup></Signup>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/add-new" element={<AddNewItem></AddNewItem>}></Route>
         <Route path="/my-item" element={<MyItem></MyItem>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>

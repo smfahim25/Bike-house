@@ -1,21 +1,25 @@
+import { sendPasswordResetEmail } from 'firebase/auth';
 import React, { useRef } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import auth from '../../firebase.init';
-import './Login.css';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
-
-
+import auth from '../../firebase.init';
+import Spinner from '../Spinner/Spinner';
+import './Login.css'
 
 const Login = () => {
+
     const [signInWithGoogle, user, error] = useSignInWithGoogle(auth);
-    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-    const emailRef = useRef('');
-    const passRef = useRef('');
     const navigate = useNavigate();
+    // using useref hook 
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
     const location = useLocation();
     let errorElement;
+
+    // Tracking path 
     let from = location.state?.from?.pathname || "/";
     const [
         signInWithEmailAndPassword,
@@ -23,59 +27,98 @@ const Login = () => {
         loading,
         error1,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    if (loading || sending) {
+        return <Spinner></Spinner>
+    }
     if (user1) {
         navigate(from, { replace: true });
     }
     if (user) {
         navigate(from, { replace: true });
     }
-    if (error1) {
+    if (error1 || error) {
         errorElement = <div>
-            <p className='text-danger'> {error1?.message} </p>
+            <p className='text-danger'>Error: {error1?.message} {error?.message} </p>
         </div>
     }
-    if (error) {
-        errorElement = <div>
-            <p className='text-danger'> {error1?.message} </p>
-        </div>
-    }
-    const resetPassword = async () => {
-        const email = emailRef.current.value;
-        await sendPasswordResetEmail(email);
-        toast('Please enter a email address');
-    }
-    const handleSignIn = event => {
+    // event handler 
+    const handleSubmit = event => {
         event.preventDefault();
         const email = emailRef.current.value;
-        const password = passRef.current.value;
+        const password = passwordRef.current.value;
         signInWithEmailAndPassword(email, password);
     }
+
+    // Register form navigator 
+
+    const navigateRegister = event => {
+        navigate('/register');
+    }
+
+    // Password Reset option 
+
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Email sent to', email);
+        } else {
+            toast('Please enter email address.');
+        }
+
+    }
+
     return (
-        <div>
-            <div className='container w-50 mx-auto'>
-                <h1 className=' text-center first'>Login</h1>
-                <form onSubmit={handleSignIn}>
-                    <div className="mb-3">
-                        <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                        <input ref={emailRef} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
+        <div className='form-area'>
+            <form onSubmit={handleSubmit} className='login-form'>
+                {/* <!-- Email input --> */}
+                <h2 className='text-center'>Login</h2>
+                <div className="form-outline mb-4">
+                    <input ref={emailRef} type="email" placeholder='Email address' className="form-control" required />
+                </div>
+
+
+                <div className="form-outline mb-4">
+                    <input ref={passwordRef} type="password" placeholder="Password" className="form-control" required />
+
+                </div>
+
+
+
+                <div className="row mb-4">
+                    <div className="col d-flex justify-content-center">
+
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" value="" />
+                            <label className="form-check-label" > Remember me </label>
+                        </div>
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                        <input ref={passRef} type="password" className="form-control" id="exampleInputPassword1" required />
+
+                    <div className="col">
+
+                        <b onClick={resetPassword} className='reg-button'>Forgot password?</b>
                     </div>
-                    {
-                        errorElement
-                    }
-                    {
-                        loading && <p>Loading...</p>
-                    }
-                    <button type="submit" className="btn signin-btn">Login</button>
-                </form>
-                <p className='mt-3 text-center'>New to Fahim's Photography? <Link className='form-link' to='/signup'>Create new account</Link></p>
-                <p className='mt-3 text-center'>Forget Password? <button onClick={resetPassword} className='form-link btn btn-link'>Reset Password</button></p>
-                <ToastContainer />
-                <button onClick={() => signInWithGoogle()} className='google-btn text-center'><i className="fab fa-google"> </i> Google Sign In</button>
-            </div>
+                    {errorElement}
+                </div>
+
+
+                <button type="submit" className="btn btn-primary btn-block mb-4">Log in</button>
+
+
+                <div className="text-center">
+                    <p>Not a member? <b onClick={navigateRegister} className='reg-button'>Create new account</b></p>
+                    <p>or sign up with:</p>
+
+
+                    <button onClick={() => signInWithGoogle()} type="button" className="btn btn-primary btn-block mb-4">
+                        <i className="fab fa-google"></i>    sign in with google
+                    </button>
+                    <ToastContainer />
+
+                </div>
+            </form>
         </div>
     );
 };

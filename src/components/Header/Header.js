@@ -18,9 +18,6 @@ const Header = () => {
                             <Nav.Link as={Link} to={"/manage-inventory"} className='text-white'>Manage Item</Nav.Link>
                             <Nav.Link as={Link} to={"/my-item"} className='text-white'>My Item</Nav.Link>
                             <Nav.Link as={Link} to={"/blog"} className='text-white'>Blog</Nav.Link>
-
-
-                            <Nav.Link as={Link} to={"/login"} className='text-white'>Login</Nav.Link>
                             <Nav.Link as={Link} to={"/login"} className='text-white'>Login</Nav.Link>
                             <Nav.Link as={Link} to={"/signup"} className='text-white'>Register</Nav.Link>
                         </Nav>
