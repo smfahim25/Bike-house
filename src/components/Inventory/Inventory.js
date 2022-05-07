@@ -8,32 +8,32 @@ import './Inventory.css';
 const Inventory = () => {
     const { inventoryID } = useParams();
     // Loadinf single car by id 
-    const [cars, setCars] = useState([]);
+    const [bikes, setBikes] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/cars/${inventoryID}`)
+        fetch(`http://localhost:5000/bikes/${inventoryID}`)
             .then(res => res.json())
-            .then(data => setCars(data));
-    }, [])
+            .then(data => setBikes(data));
+    }, [bikes])
 
-    const { _id, name, img, description, price, supplier, ratings, quantity, sold } = cars;
+    const { name, img, description, price, supplier, ratings, quantity } = bikes;
 
 
     // Updating quantity
     const quantityRef = useRef('');
-    const handleUpdateCars = event => {
+    const handleUpdateBikes = event => {
         event.preventDefault();
         const quantity = quantityRef.current.value;
         console.log('getting quantity: ', quantity);
-        const updatedCars = { quantity };
+        const updatedBikes = { quantity };
 
         // send data to the server
-        const url = `htttp://localhost:5000/cars/${inventoryID}`;
+        const url = `http://localhost:5000/bikes/${inventoryID}`;
         fetch(url, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(updatedCars)
+            body: JSON.stringify(updatedBikes)
         })
             .then(res => res.json())
             .then(data => {
@@ -57,7 +57,7 @@ const Inventory = () => {
                         <div className="img-display">
                             <div className="img-showcase">
 
-                                <img src={img} alt="car img" />
+                                <img src={img} alt="bike img" />
 
                             </div>
                         </div>
@@ -73,11 +73,11 @@ const Inventory = () => {
                             <i className="fas fa-star"></i>
                             <i className="fas fa-star"></i>
                             <i className="fas fa-star-half-alt"></i>
-                            <span>{ratings}(21)</span>
+                            <span>{ratings}(5)</span>
                         </div>
 
                         <div className="product-price">
-                            <p className="quantity">Quantity: <span>{quantity}</span>  Sold: <span>{sold}</span></p>
+                            <p className="quantity">Quantity: <span>{quantity}</span></p>
                             <p className="new-price"> Price: <span> ${price}</span></p>
                         </div>
 
@@ -90,7 +90,7 @@ const Inventory = () => {
 
                         <div className="purchase-info">
                             <input type="number" ref={quantityRef} placeholder='0' />
-                            <button type="button" onClick={handleUpdateCars} className="product-button">Restock </button>
+                            <button type="button" onClick={handleUpdateBikes} className="product-button">Restock </button>
                             <button type="button" className="product-button">Delivered</button>
                         </div>
 

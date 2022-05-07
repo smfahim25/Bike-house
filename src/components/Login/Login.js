@@ -38,11 +38,11 @@ const Login = () => {
     if (user) {
         navigate(from, { replace: true });
     }
-    if (error1 || error) {
-        errorElement = <div>
-            <p className='text-danger'>Error: {error1?.message} {error?.message} </p>
-        </div>
-    }
+    // if (error1 || error) {
+    //     errorElement = <div>
+    //         <p className='text-danger'>Error: {error1?.message} {error?.message} </p>
+    //     </div>
+    // }
     // event handler 
     const handleSubmit = event => {
         event.preventDefault();
@@ -96,19 +96,17 @@ const Login = () => {
                         </div>
                     </div>
 
-                    <div className="col">
+                    <div className="col d-flex ">
 
                         <b onClick={resetPassword} className='reg-button'>Forgot password?</b>
                     </div>
-                    {errorElement}
                 </div>
 
 
                 <button type="submit" className="btn btn-primary btn-block mb-4">Log in</button>
 
-
                 <div className="text-center">
-                    <p>Not a member? <b onClick={navigateRegister} className='reg-button'>Create new account</b></p>
+                    <p>Not a member?<b onClick={navigateRegister} className='reg-button'>Create new account</b></p>
                     <p>or sign up with:</p>
 
 

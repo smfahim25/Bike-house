@@ -20,7 +20,7 @@ const SingleItems = (props) => {
     const handleDelete = id => {
         const proceed = window.confirm(`Are you sure want to delete ${name}`);
         if (proceed) {
-            const url = `http://localhost:5000/cars/${id}`;
+            const url = `http://localhost:5000/bikes/${id}`;
             fetch(url, {
                 method: 'DELETE'
 

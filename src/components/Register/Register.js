@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Register.css';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import Spinner from '../Spinner';
-import auth from '../../../firebase.init';
+import Spinner from '../Spinner/Spinner';
+import auth from '../../firebase.init';
 
 const Register = () => {
 

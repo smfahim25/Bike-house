@@ -10,8 +10,8 @@ import Login from './components/Login/Login';
 import ManageInventory from './components/ManageInventory/ManageInventory';
 import MyItem from './components/MyItem/MyItem';
 import NotFound from './components/NotFound/NotFound';
+import Register from './components/Register/Register';
 import RequireAuth from './components/RequireAuth/RequireAuth';
-import Register from './components/Spinner/Register/Register';
 
 
 
