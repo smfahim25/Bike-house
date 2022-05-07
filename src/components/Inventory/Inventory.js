@@ -13,27 +13,27 @@ const Inventory = () => {
         fetch(`http://localhost:5000/bikes/${inventoryID}`)
             .then(res => res.json())
             .then(data => setBikes(data));
-    }, [bikes])
+    }, [inventoryID])
 
-    const { name, img, description, price, supplier, ratings, quantity } = bikes;
-
+    const { name, img, description, price, supplier, ratings, quantity, sold } = bikes;
+    console.log(quantity)
 
     // Updating quantity
     const quantityRef = useRef('');
-    const handleUpdateBikes = event => {
+    const handleUpdateCars = event => {
         event.preventDefault();
         const quantity = quantityRef.current.value;
         console.log('getting quantity: ', quantity);
-        const updatedBikes = { quantity };
+        const updatedCars = { quantity };
 
         // send data to the server
-        const url = `http://localhost:5000/bikes/${inventoryID}`;
+        const url = `htttp://localhost:5000/cars/${inventoryID}`;
         fetch(url, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(updatedBikes)
+            body: JSON.stringify(updatedCars)
         })
             .then(res => res.json())
             .then(data => {
@@ -77,7 +77,7 @@ const Inventory = () => {
                         </div>
 
                         <div className="product-price">
-                            <p className="quantity">Quantity: <span>{quantity}</span></p>
+                            <p className="quantity">Quantity: <span>{quantity}</span>  Sold: <span>{sold}</span></p>
                             <p className="new-price"> Price: <span> ${price}</span></p>
                         </div>
 
@@ -90,7 +90,7 @@ const Inventory = () => {
 
                         <div className="purchase-info">
                             <input type="number" ref={quantityRef} placeholder='0' />
-                            <button type="button" onClick={handleUpdateBikes} className="product-button">Restock </button>
+                            <button type="button" onClick={handleUpdateCars} className="product-button">Restock </button>
                             <button type="button" className="product-button">Delivered</button>
                         </div>
 
