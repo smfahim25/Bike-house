@@ -55,13 +55,6 @@ const Brands = () => {
                         <a href="#">
                             <div className="image-bar">
                                 <span className="mks-3">
-                                    <img src="https://listing.maxwheelswp.com/wp-content/uploads/2021/03/honda-logo.png" alt="Honda" />
-                                </span>
-                            </div>
-                            <span className="mks-3-name">Honda</span></a></div><div className="col-xl-2 col-xxl-2 col-lg-3 col-md-4 col-sm-6 col-6 brand-colum">
-                        <a href="#">
-                            <div className="image-bar">
-                                <span className="mks-3">
                                     <img src="https://ic1.maxabout.us/autos/tw_india/company-logos//L/2020/6/latest-vespa-scooters-india.jpg/thumb/70" alt="Vespa" />
                                 </span>
                             </div>

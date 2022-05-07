@@ -1,0 +1,18 @@
+.car-icon {
+    width: 100px;
+}
+
+.delet-icon img {
+    width: 30px;
+    cursor: pointer;
+}
+
+.delet-icon {
+    padding: 2px;
+}
+
+@media screen and (max-width: 580px) {
+    .mob-dev {
+        display: none;
+    }
+}
