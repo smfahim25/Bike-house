@@ -1,10 +1,10 @@
-# Cute Car- Ware house management website
+# Bike House- Ware house management website
 
 Car warehouse management website. From where customers can take experience like guidelines about cars and price brands.
-Live Client site Link: https://cute-car-inventory.web.app/
-or [Click to visit Cute Car- Ware house management website](https://cute-car-inventory.web.app/).
-Live Server site Link: https://secure-cliffs-70594.herokuapp.com/
-or [Click to visit Cute Car- Ware house Server site](https://secure-cliffs-70594.herokuapp.com/).
+Live Client site Link: https://bike-house-22f6f.web.app/
+or [Click to visit Bike House- Ware house management website](https://bike-house-22f6f.web.app/).
+Live Server site Link: https://warm-sierra-80009.herokuapp.com/
+or [Click to visit Bike House- Ware house Server site](https://warm-sierra-80009.herokuapp.com/).
 
 ## To complete this whole project I used
 
