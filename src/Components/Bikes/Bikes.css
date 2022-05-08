@@ -1,0 +1,38 @@
+.cars {
+  margin-top: 30px;
+  text-align: center;
+  /* display: flex;
+      justify-content: center; */
+}
+
+.car-container {
+  margin: 2%;
+}
+
+.manage-button {
+  background-color: #282f3d;
+  color: aliceblue;
+  margin-bottom: 50px;
+}
+
+.manage-button button :hover {
+  color: aqua;
+}
+
+.bikes-title {
+  position: relative;
+  padding: 0 0 10px;
+  margin-bottom: 10px;
+}
+
+.bikes-title:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 50px;
+  border-radius: 2px;
+  background-color: #f91942;
+}

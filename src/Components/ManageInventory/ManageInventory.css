@@ -1,0 +1,9 @@
+@media screen and (max-width: 580px) {
+  .mob-dev {
+    display: none;
+  }
+}
+.add-button {
+  margin-top: 20px;
+  margin: 10px;
+}

@@ -8,6 +8,6 @@ const useBikes = () => {
             .then(data => setBikes(data));
     }, [])
 
-    return [bikes, setBikes];
+    return [bikes, useBikes];
 }
 export default useBikes;
