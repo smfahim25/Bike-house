@@ -38,7 +38,7 @@ const Header = () => {
                                     : ''
                             }
                             {
-                                user ? <Nav.Link as={Link} to={"/add-new"}>Add New Bike</Nav.Link>
+                                user ? <Nav.Link as={Link} to={"/add-new"} className='text-white'>Add New Bike</Nav.Link>
 
                                     : ''
                             }

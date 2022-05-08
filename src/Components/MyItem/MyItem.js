@@ -17,7 +17,7 @@ const MyItem = () => {
 
         const getMycar = async () => {
             const email = user.email;
-            const url = `http://localhost:5000/mybike?email=${email}`;
+            const url = `https://warm-sierra-80009.herokuapp.com/mybike?email=${email}`;
             try {
                 const { data } = await axiosPrivate.get(url);
                 setBikes(data);
@@ -45,7 +45,7 @@ const MyItem = () => {
     const handleDelete = id => {
         const proceed = window.confirm(`Are you sure want to delete`);
         if (proceed) {
-            const url = `http://localhost:5000/bikes/${id}`;
+            const url = `https://warm-sierra-80009.herokuapp.com/bikes/${id}`;
             fetch(url, {
                 method: 'DELETE'
 
@@ -63,8 +63,8 @@ const MyItem = () => {
     return (
         <div>
             {
-                bikes.length == 0 ? <h2>You have not added any bike</h2> : <div>
-                    <Table responsive>
+                bikes.length === 0 ? <h2>You have not added any bike</h2> : <div>
+                    <Table responsive className='container mb-5'>
                         <thead>
                             <tr>
                                 <th className='mob-dev'>Image</th>
@@ -80,7 +80,7 @@ const MyItem = () => {
                         <tbody>
 
                             {bikes?.map(bike =>
-                                <tr key={bike._id}>
+                                <tr key={bike._id} className='bor'>
                                     <td className='mob-dev'><img className='car-icon' src={bike.img} alt="" /></td>
                                     <td>{bike.name}</td>
                                     <td className='mob-dev'>{bike.supplier}</td>

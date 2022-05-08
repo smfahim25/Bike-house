@@ -37,7 +37,7 @@ const Inventory = () => {
 
         // send data to the server
         setLoading(true);
-        const url = `http://localhost:5000/bikes/${inventoryID}`;
+        const url = `https://warm-sierra-80009.herokuapp.com/bikes/${inventoryID}`;
         fetch(url, {
             method: 'PUT',
             headers: {

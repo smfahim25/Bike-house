@@ -28,7 +28,7 @@ const ManageInventory = () => {
     const handleDelete = id => {
         const proceed = window.confirm(`Are you sure want to delete`);
         if (proceed) {
-            const url = `http://localhost:5000/bikes/${id}`;
+            const url = `https://warm-sierra-80009.herokuapp.com/bikes/${id}`;
             fetch(url, {
                 method: 'DELETE'
 
@@ -49,7 +49,7 @@ const ManageInventory = () => {
                 <button className='btn add-button' onClick={navigateToAddNew}>Add New</button>
 
             </div>
-            <Table responsive>
+            <Table responsive className='container mb-5'>
                 <thead>
                     <tr>
                         <th className='mob-dev'>Image</th>
@@ -65,14 +65,13 @@ const ManageInventory = () => {
                 <tbody>
 
                     {bikes?.map(bike =>
-                        <tr key={bike._id}>
+                        <tr key={bike._id} className='bor'>
                             <td className='mob-dev'><img className='car-icon' src={bike.img} alt="" /></td>
                             <td>{bike.name}</td>
                             <td className='mob-dev'>{bike.supplier}</td>
                             <td>{bike.price}</td>
 
                             <td>{bike.quantity}</td>
-                            <td className='mob-dev'>{bike.sold}</td>
                             <td className='delet-icon'>
                                 <img onClick={() => navigateToUpdate(bike._id)} src={editIcon} alt="" />
                             </td>

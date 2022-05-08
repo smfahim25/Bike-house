@@ -38,7 +38,7 @@ const AddNewItem = () => {
             description: descriptionRef.current.value
         }
 
-        const url = `http://localhost:5000//bikes`;
+        const url = `https://warm-sierra-80009.herokuapp.com/bikes`;
         fetch(url, {
             method: 'POST',
             headers: {

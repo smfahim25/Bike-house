@@ -10,13 +10,13 @@
 }
 
 .manage-button {
-  background-color: #282f3d;
+  background-color: #fa3333;
   color: aliceblue;
   margin-bottom: 50px;
 }
 
 .manage-button button :hover {
-  color: aqua;
+  color: rgb(249, 252, 252);
 }
 
 .bikes-title {
