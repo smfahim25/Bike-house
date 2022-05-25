@@ -12,6 +12,7 @@ const Bikes = () => {
     }
 
     const [bikes] = useBikes();
+    // window.location.reload();
     return (
         <div className='cars'>
             <h4 className='text-center bikes-title'>Bikes</h4>

@@ -7,3 +7,11 @@
   text-decoration: none;
   color: #fff;
 }
+
+.add-btn {
+  background-color: rgb(252, 63, 63);
+}
+
+.add-btn:hover {
+  background-color: #fff;
+}

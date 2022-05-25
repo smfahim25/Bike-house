@@ -7,14 +7,17 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-fi
 import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 const Register = () => {
 
     const [signInWithGoogle, user1, error2] = useSignInWithGoogle(auth);
-    const [error1, setError1] = useState('');
+    // const [error1, setError1] = useState('');
+    const [loading, setLoading] = useState(false);
     const nameRef = useRef('');
     const emailRef = useRef('');
     const passwordRef = useRef('');
+    let errorElement;
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -23,7 +26,7 @@ const Register = () => {
         createUserWithEmailAndPassword,
         user,
         error,
-        loading,
+        loading1,
         sending,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     if (loading || sending) {
@@ -35,7 +38,11 @@ const Register = () => {
     if (user1) {
         navigate(from, { replace: true });
     }
-
+    if (error) {
+        errorElement = <div>
+            {error.message}
+        </div>
+    }
 
     // event handler 
     //  const handleRegister = event =>{
@@ -47,12 +54,19 @@ const Register = () => {
     //      createUserWithEmailAndPassword(email, password);
     //  }
 
-    const handleRegister = event => {
+    const handleRegister = async event => {
         event.preventDefault();
         const name = nameRef.current.value;
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        createUserWithEmailAndPassword(email, password);
+        // createUserWithEmailAndPassword(email, password);
+        setLoading(true);
+
+        await createUserWithEmailAndPassword(email, password);
+        setLoading(false);
+        const { data } = await axios.post('https://warm-sierra-80009.herokuapp.com/login', { email });
+        localStorage.setItem('accessToken', data.accessToken);
+        window.location.reload();
         toast('verification email sent');
     }
 
@@ -73,7 +87,7 @@ const Register = () => {
                 <h2 className='text-center'>Register</h2>
 
                 <div className="form-outline mb-4">
-                    <input ref={nameRef} placeholder='Your Name' className="form-control" />
+                    <input ref={nameRef} placeholder='Your Name' className="form-control" required />
                 </div>
 
                 <div className="form-outline mb-4">
@@ -98,9 +112,9 @@ const Register = () => {
                     </div>
 
                 </div>
+                {errorElement}
 
-
-                <button type="submit" className="btn btn-primary btn-block mb-4">Sign UP</button>
+                <button type="submit" className="btn add-btn btn-block mb-4">Sign UP</button>
 
 
                 <div className="text-center">
@@ -108,7 +122,7 @@ const Register = () => {
                     <p>or sign up with:</p>
 
 
-                    <button onClick={() => signInWithGoogle()} type="button" className="btn btn-primary btn-block mb-4">
+                    <button onClick={() => signInWithGoogle()} type="button" className="btn add-btn btn-block mb-4">
                         <i className="fab fa-google"></i>    sign in with google
                     </button>
 

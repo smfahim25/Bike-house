@@ -43,7 +43,7 @@ const MyItem = () => {
     // delete icon 
     //  const [cars,setCars]=useCars();
     const handleDelete = id => {
-        const proceed = window.confirm(`Are you sure want to delete`);
+        const proceed = window.confirm(`Are you sure want to delete.`);
         if (proceed) {
             const url = `https://warm-sierra-80009.herokuapp.com/bikes/${id}`;
             fetch(url, {
@@ -63,7 +63,7 @@ const MyItem = () => {
     return (
         <div>
             {
-                bikes.length === 0 ? <h2>You have not added any bike</h2> : <div>
+                bikes.length === 0 ? <h2>You have not added any bike.</h2> : <div>
                     <Table responsive className='container mb-5'>
                         <thead>
                             <tr>

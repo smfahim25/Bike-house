@@ -10,7 +10,7 @@
 }
 
 .manage-button {
-  background-color: #fa3333;
+  background-color: #2e2a2a;
   color: aliceblue;
   margin-bottom: 50px;
 }
@@ -34,5 +34,5 @@
   height: 4px;
   width: 50px;
   border-radius: 2px;
-  background-color: #f91942;
+  background-color: #1f1c1d;
 }

@@ -39,9 +39,9 @@ const Login = () => {
     if (user) {
         navigate(from, { replace: true });
     }
-    if (error1 || error) {
+    if (error1) {
         errorElement = <div>
-            <p className='text-danger'>Error: {error1?.message} {error?.message} </p>
+            <p className='text-danger'> {error1?.message} </p>
         </div>
     }
     // event handler 
@@ -109,7 +109,7 @@ const Login = () => {
                 </div>
 
 
-                <button type="submit" className="btn btn-primary btn-block mb-4">Log in</button>
+                <button type="submit" className="btn add-btn btn-block mb-4">Log in</button>
 
 
                 <div className="text-center">
@@ -117,7 +117,7 @@ const Login = () => {
                     <p>or sign up with:</p>
 
 
-                    <button onClick={() => signInWithGoogle()} type="button" className="btn btn-primary btn-block mb-4">
+                    <button onClick={() => signInWithGoogle()} type="button" className="btn add-btn btn-block mb-4">
                         <i className="fab fa-google"></i>    sign in with google
                     </button>
 

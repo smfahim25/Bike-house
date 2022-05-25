@@ -13,6 +13,7 @@ const Inventory = () => {
 
     // Loadinf single car by id 
     const [bikes, setBikes] = useInventory(inventoryID);
+    // const [inventoryItem] = useInventory(inventoryID)
 
     const [quantity1, setQuantity] = useState(1);
 
@@ -28,37 +29,50 @@ const Inventory = () => {
 
     // Updating quantity
     const quantityRef = useRef('');
-    const handleUpdateCars = event => {
+    const handleUpdateBikes = event => {
         event.preventDefault();
+        const negative = quantityRef.current.value;
+        // console.log(inputQuantity);
         const quantity = parseInt(quantityRef.current.value) + parseInt(preQuantity);
         // for fron end show 
-        bikes.quantity = parseInt(quantityRef.current.value) + parseInt(bikes.quantity);
-        const updatedBikes = { quantity };
+        if (isNaN(quantity)) {
+            alert("Please give valid value of restock.")
+            return 0;
+        }
+        else if (negative < 0) {
+            alert('Please give valid value of restock.')
+            return 0;
+        }
+        else {
+            bikes.quantity = parseInt(quantityRef.current.value) + parseInt(bikes.quantity);
+            const updatedBikes = { quantity };
 
-        // send data to the server
-        setLoading(true);
-        const url = `https://warm-sierra-80009.herokuapp.com/bikes/${inventoryID}`;
-        fetch(url, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(updatedBikes)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log('success', data);
-                alert('Stock updated successfully!!!');
-                // event.target.reset();
-                setLoading(false);
-
-
+            // send data to the server
+            setLoading(true);
+            const url = `https://warm-sierra-80009.herokuapp.com/bikes/${inventoryID}`;
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(updatedBikes)
             })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('success', data);
+                    alert('Restock successfully!!!');
+                    // event.target.reset();
+                    setLoading(false);
+
+
+                })
+        }
+
     }
 
 
     // updating delivered button 
-    const handleDeliveredCars = event => {
+    const handleDeliveredBikes = event => {
         event.preventDefault();
         const quantity = parseInt(preQuantity) - 1;
         bikes.quantity = bikes.quantity - 1;
@@ -72,7 +86,7 @@ const Inventory = () => {
 
         // send data to the server
         setLoading(true);
-        const url = `http://localhost:5000/bikes/${inventoryID}`;
+        const url = `https://warm-sierra-80009.herokuapp.com/bikes/${inventoryID}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -93,8 +107,6 @@ const Inventory = () => {
 
 
 
-
-
     return (
         <>
             {
@@ -107,7 +119,7 @@ const Inventory = () => {
                                 <div className="img-display">
                                     <div className="img-showcase">
 
-                                        <img src={img} alt="car img" />
+                                        <img src={img} alt="bike img" />
 
                                     </div>
                                 </div>
@@ -144,9 +156,9 @@ const Inventory = () => {
                                 </div>
 
                                 <div className="purchase-info">
-                                    <input type="number" ref={quantityRef} placeholder='0' />
-                                    <button type="button" onClick={handleUpdateCars} className="product-button">Restock </button>
-                                    <button type="button" onClick={handleDeliveredCars} className="product-button">Delivered</button>
+                                    <input type="positive-number" ref={quantityRef} placeholder='0' />
+                                    <button type="button" onClick={handleUpdateBikes} className="product-button">Restock </button>
+                                    <button type="button" onClick={handleDeliveredBikes} className="product-button">Delivered</button>
                                 </div>
 
                                 <div className="social-links">

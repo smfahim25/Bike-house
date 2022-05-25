@@ -26,7 +26,7 @@ const ManageInventory = () => {
     // delete icon 
     //  const [cars,setCars]=useCars();
     const handleDelete = id => {
-        const proceed = window.confirm(`Are you sure want to delete`);
+        const proceed = window.confirm(`Are you sure want to delete.`);
         if (proceed) {
             const url = `https://warm-sierra-80009.herokuapp.com/bikes/${id}`;
             fetch(url, {
@@ -36,11 +36,14 @@ const ManageInventory = () => {
                 .then(res => res.json())
                 .then(result => {
                     console.log(result);
+                    window.location.reload();
                     const remaining = bikes.filter(bike => bike._id !== id);
                     setBikes(remaining);
+
                     //  update.handleUpdate(_id);
                 })
         }
+
     }
     return (
         <div>

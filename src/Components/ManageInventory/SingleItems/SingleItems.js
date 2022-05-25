@@ -42,7 +42,6 @@ const SingleItems = (props) => {
             <td>{price}</td>
 
             <td>{quantity}</td>
-            <td className='mob-dev'>{sold}</td>
             <td className='delet-icon'>
                 <img onClick={() => navigateToUpdate(_id)} src={editIcon} alt="" />
             </td>

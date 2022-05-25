@@ -13,7 +13,7 @@ const AddNewItem = () => {
     // using use ref hook to take input data
     const nameRef = useRef('');
     const emailRef = useRef('');
-    const soldRef = useRef('');
+    // const soldRef = useRef('');
     const brandRef = useRef('');
     const priceRef = useRef('');
     const ratingsRef = useRef('');
@@ -33,7 +33,7 @@ const AddNewItem = () => {
             price: priceRef.current.value,
             ratings: ratingsRef.current.value,
             quantity: quantityRef.current.value,
-            sold: soldRef.current.value,
+            // sold: soldRef.current.value,
             img: urlRef.current.value,
             description: descriptionRef.current.value
         }
@@ -51,6 +51,7 @@ const AddNewItem = () => {
                 console.log(result);
 
                 toast('Bike added successfully');
+                window.location.reload();
             })
 
 
@@ -97,9 +98,9 @@ const AddNewItem = () => {
                                     <div className="col">
                                         <input ref={quantityRef} type="number" className="form-control" placeholder="Quantity" required />
                                     </div>
-                                    <div className="col">
+                                    {/* <div className="col">
                                         <input ref={soldRef} type="number" className="form-control" placeholder="Sold" required />
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="row align-items-center mt-4">
                                     <div className="col">
@@ -116,7 +117,7 @@ const AddNewItem = () => {
                                     <div className="col text-center">
 
 
-                                        <button className="btn btn-primary mb-4">Submit</button>
+                                        <button className="btn add-btn mb-4">Submit</button>
                                     </div>
                                 </div>
                             </div>
